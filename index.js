@@ -23,6 +23,8 @@ bot.start(async (ctx) => {
 	const user = await $user.findOne({ id: ctx.from.id })
     if (!user) {
         await saveUser(ctx)
+
+        return ctx.scene.enter("registrationScene");
     }
 });
 
