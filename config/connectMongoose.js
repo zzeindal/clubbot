@@ -4,7 +4,13 @@ const userSchema = new mongo.Schema({
     uid: Number,
     id: Number,
     userName: String,
-    userNick: String
+    userNick: String,
+    first_name: String,
+    last_name: String,
+    birthday: String,
+    phoneNumber: String,
+    balance: Number,
+    access_to_payment: Boolean
 });
 
 $user.prototype.set = function(field, value) {

@@ -8,7 +8,7 @@ process
 
 const { bot } = require('./config/connectTelegram.js');
 const { $user } = require('./config/connectMongoose.js');
-const { saveUser, main_keyboard } = require('./helpers/utils.js')
+const { saveUser, getUser, main_keyboard } = require('./helpers/utils.js')
 
 const { Keyboard, Key } = require('telegram-keyboard')
 
@@ -20,7 +20,7 @@ bot.catch((err, ctx) => {
 })
 
 bot.start(async (ctx) => {
-	const user = await $user.findOne({ id: ctx.from.id })
+	const user = await getUser(ctx.from.id);
     if (!user) {
         await saveUser(ctx)
 

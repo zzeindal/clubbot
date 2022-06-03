@@ -18,7 +18,23 @@ const i18n = new TelegrafI18n({
     }
 });
 
+const {
+    registration_scene,
+    registration_scene_2,
+    registration_scene_3,
+    registration_scene_4,
+    registration_scene_5
+} = require('./scenes/registrationScene.js');
+
+const { addBalance_scene } = require('./scenes/addBalanceScene.js');
+
 const stage = new Stage([
+    registration_scene,
+    registration_scene_2,
+    registration_scene_3,
+    registration_scene_4,
+    registration_scene_5,
+    addBalance_scene
 ]);
 
 bot.use((new LocalSession({ database: 'session.json' })).middleware())

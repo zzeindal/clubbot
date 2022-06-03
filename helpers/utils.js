@@ -1,14 +1,9 @@
 const { Keyboard, Key } = require('telegram-keyboard')
 const { $user } = require('../config/connectMongoose.js');
 const fs = require('fs');
+const Axios = require('axios')
 const botUsername = 'smsaccount_bot';
 const adminChat = -1001427054190;
-
-const main_keyboard = Keyboard.make(['📲 Арендовать номер', '⚙️ Профиль', '🎁 Бонусы клиентам', '🔓 Остальные боты', '❓ Тех. поддержка', '📝 FAQ'], {
-    columns: 2,
-}).reply();
-
-const back_keyboard = Keyboard.make(['🔙 Назад']).reply();
 
 async function saveUser(ctx) {
     const count = await $user.countDocuments();
@@ -18,22 +13,33 @@ async function saveUser(ctx) {
         userName: `${ctx.from.first_name}`,
         userNick: `${ctx.from.username !== undefined ? ctx.from.username : 'Без никнейма'}`,
         balance: 0,
-        referalBalance: 0,
-        level: 1,
-        salePercent: 0,
-        chatWithAdmin: false
+        access_to_payment: false
     })
     await user.save();
 }
 
-async function getUser(ctx) {
-    const user = await $user.findOne({ id: ctx.from.id })
+async function getUser(id) {
+    const user = await $user.findOne({ id: id })
     return user;
+}
+
+async function downloadImage(url, filepath) {
+    const response = await Axios({
+        url,
+        method: 'GET',
+        responseType: 'stream'
+    });
+    return new Promise((resolve, reject) => {
+        response.data.pipe(fs.createWriteStream(filepath))
+            .on('error', reject)
+            .once('close', () => resolve(filepath));
+    });
 }
 
 module.exports = {
     botUsername,
     adminChat,
     saveUser,
-    getUser
+    getUser,
+    downloadImage
 }
