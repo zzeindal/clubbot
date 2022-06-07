@@ -7,5 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zzeindal",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "mongoose": "^6.3.5",
+    "qrcode": "^1.5.0",
+    "telegraf": "3.38",
+    "telegraf-i18n": "^6.6.0",
+    "telegraf-session-local": "^2.1.0",
+    "telegram-keyboard": "^2.3.1"
+  }
 }

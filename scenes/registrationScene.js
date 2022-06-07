@@ -1,7 +1,7 @@
 const { BaseScene } = require('telegraf');
 const { Keyboard, Key } = require('telegram-keyboard');
-const { getUser, downloadImage } = require('./helpers/utils.js');
-const { main_keyboard, back_keyboard } = require('./helpers/keyboard.js');
+const { getUser, downloadImage } = require('../helpers/utils.js');
+const { main_keyboard, back_keyboard } = require('../helpers/keyboard.js');
 
 const registration_scene = new BaseScene('registration_scene');
 registration_scene.enter(async (ctx) => {

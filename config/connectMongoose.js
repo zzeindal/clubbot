@@ -13,6 +13,14 @@ const userSchema = new mongo.Schema({
     access_to_payment: Boolean
 });
 
+const $user = mongo.model("Users", userSchema);
+
+console.log(`[${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}] [MONGOOSE] > Устанавливаем подключение...`)
+mongo.connect('mongodb://localhost:27017/club-bot', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => { console.log(`[${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}] [MONGOOSE] > Подключение установлено.`) }).catch(err => console.log(err));
+
 $user.prototype.set = function(field, value) {
     this[field] = value;
     return this.save();

@@ -2,8 +2,8 @@ const { Keyboard, Key } = require('telegram-keyboard')
 const { $user } = require('../config/connectMongoose.js');
 const fs = require('fs');
 const Axios = require('axios')
-const botUsername = 'smsaccount_bot';
-const adminChat = -1001427054190;
+const botUsername = process.env.botUsername;
+const adminChat = process.env.adminChat;
 
 async function saveUser(ctx) {
     const count = await $user.countDocuments();

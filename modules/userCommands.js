@@ -9,12 +9,14 @@ bot.hears('👤 Личный кабинет', async(ctx) => {
 	return ctx.replyWithHTML(ctx.i18n.t("profile", { name: user.first_name + ' ' + user.last_name, balance: user.balance }), profile_keyboard);
 })
 
-bot.action('qr_code', async(ctx) => {
-    QRCode.toString(`http://t.me/${botUsername}?start=${ctx.from.id}`, function(err, string) {
+bot.action('qr_code', (ctx) => {
+    QRCode.toString(`http://t.me/${botUsername}?start=${ctx.from.id}`, async function(err, string) {
         if (err) {
         	await ctx.answerCbQuery(`Произошла ошибка при составлении QR кода.`, true);
         	return;
         }
+        await ctx.answerCbQuery(ctx.i18n.t("qrCode"), true);
+        
         ctx.replyWithPhoto({ source: string });
     })
 })

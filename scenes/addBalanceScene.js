@@ -1,6 +1,6 @@
 const { BaseScene } = require('telegraf');
 const { Keyboard, Key } = require('telegram-keyboard');
-const { main_keyboard, back_keyboard, profile_keyboard } = require('./helpers/keyboard.js');
+const { main_keyboard, back_keyboard, profile_keyboard } = require('../helpers/keyboard.js');
 
 const addBalance_scene = new BaseScene('addBalance_scene');
 addBalance_scene.enter(async (ctx) => {
