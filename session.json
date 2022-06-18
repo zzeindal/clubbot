@@ -1,3 +1,29 @@
 {
-  "sessions": []
+  "sessions": [
+    {
+      "id": "1038469052:1038469052",
+      "data": {
+        "__language_code": "ru",
+        "__scenes": {}
+      }
+    },
+    {
+      "id": "503118393:503118393",
+      "data": {
+        "__language_code": "ru",
+        "first_name": "Абдухалил",
+        "last_name": "Джалолов",
+        "birthday": "19.03.2000",
+        "phoneNumber": "+998904607710",
+        "__scenes": {}
+      }
+    },
+    {
+      "id": "-1001689847621:136817688",
+      "data": {
+        "__scenes": {},
+        "__language_code": "ru"
+      }
+    }
+  ]
 }

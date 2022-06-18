@@ -9,8 +9,11 @@
   "author": "zzeindal",
   "license": "ISC",
   "dependencies": {
+    "@mtproto/core": "^6.2.0",
+    "alfabank": "^1.0.0-alpha.14",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "moment": "^2.29.3",
     "mongoose": "^6.3.5",
     "qrcode": "^1.5.0",
     "telegraf": "3.38",
